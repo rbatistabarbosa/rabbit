@@ -1,0 +1,23 @@
+version: '3'
+services:
+  rabbitmq:
+    image: rabbitmq:3.6-management-alpine
+    container_name: rabbitmq
+    hostname: rabbitmq
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:15672"]
+        interval: 5s
+        timeout: 2s
+        retries: 5
+
+  server:
+    build: .
+    container_name: server
+    hostname: server
+    network_mode: "host"
+    restart: on-failure
+    depends_on:
+      - rabbitmq
