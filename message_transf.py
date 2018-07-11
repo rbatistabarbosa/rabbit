@@ -2,10 +2,14 @@ import json
 from jsonschema import validate
 
 class Out:
-    def __init__(self, msg : str):
+    def __init__(self, msg : str, is_random=False):
         self.id : int = -1
         self.status : bool = False
         self.msgs = []
+
+        if is_random and random.randint(0,10) == 0:
+            self.msgs.append('some error happen')
+            return
 
         try:
             dict_obj = json.loads(msg)

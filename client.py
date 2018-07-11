@@ -36,7 +36,7 @@ class FibonacciRpcClient(object):
 
 fibonacci_rpc = FibonacciRpcClient()
 
-order = {'id': 1, 'side': 'buy', 'price': 2.1, 'quantity': 2, 'symbol': 'USD'}
+order = {'id': 1, 'side': 'buy', 'price': -2.1, 'quantity': 2, 'symbol': 'USD'}
 print(" [x] Sending order {}".format(order))
 response = fibonacci_rpc.call(order)
 print(" [.] Got %r" % response)
