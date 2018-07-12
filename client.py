@@ -34,9 +34,9 @@ class RpcClient(object):
             self.connection.process_data_events()
         return self.response
 
-rpc = FibonacciRpcClient()
+rpc = RpcClient()
 
-order = {'id': 1, 'side': 'buy', 'price': -2.1, 'quantity': 2, 'symbol': 'USD'}
+order = {'id': 1, 'side': 'buy', 'price': 0, 'quantity': 2, 'symbol': 'USD'}
 print(" [x] Sending order {}".format(order))
 response = rpc.call(order)
 print(" [.] Got %r" % response)
