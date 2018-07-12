@@ -10,7 +10,6 @@ channel.queue_declare(queue='rpc_queue')
 
 def on_request(ch, method, props, body):
     out = Out(body, is_random=True).to_str()
-
     print(" [.] order(%s)" % out)
     response = out
 

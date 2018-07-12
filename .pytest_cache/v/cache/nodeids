@@ -1,9 +1,0 @@
-[
-  "test_message-transf.py::test_empty_message",
-  "test_message-transf.py::test_not_in_schema",
-  "test_message-transf.py::test_is_OK",
-  "test_message-transf.py::test_side_wrong",
-  "test_message-transf.py::test_price_negative",
-  "test_message-transf.py::test_price_quantity_negative",
-  "test_message-transf.py::test_to_str"
-]
