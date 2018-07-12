@@ -27,16 +27,16 @@ class Out:
         self.id = dict_obj['id']
         self.status = True
         
-        if dict_obj['side'] not in ('buy', 'sell'):
+        if dict_obj['side'].lower() not in ('buy', 'sell'):
             self.msgs.append('invalid side')
             self.status = False
         
-        if dict_obj['price'] < 0:
-            self.msgs.append('price is negative')
+        if dict_obj['price'] <= 0:
+            self.msgs.append('price must be positive')
             self.status = False
 
-        if dict_obj['quantity'] < 0:
-            self.msgs.append('quantity is negative')
+        if dict_obj['quantity'] <= 0:
+            self.msgs.append('quantity must be positive')
             self.status = False
 
 
