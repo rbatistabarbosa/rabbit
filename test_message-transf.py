@@ -33,6 +33,12 @@ def test_invalid_ip(order):
     assert out_obj.to_dict() == {'id': -2, 'status': False, 'msgs': ['id is negative']}
 
 
+def test_side_BuY(order):
+    order['side'] = 'bUy'
+    out_obj = to_out(order)
+    assert out_obj.to_dict() == {'id': 1, 'status': True, 'msgs': []}
+
+
 def test_side_wrong(order):
     order['side'] = 'a'
     out_obj = to_out(order)
@@ -42,21 +48,21 @@ def test_side_wrong(order):
 def test_price_negative(order):
     order['price'] = -1
     out_obj = to_out(order)
-    assert out_obj.to_dict() == {'id': 1, 'status': False, 'msgs': ['price is negative']}
+    assert out_obj.to_dict() == {'id': 1, 'status': False, 'msgs': ['price must be positive']}
 
 
-def test_price_negative(order):
+def test_quantitiy_negative(order):
     order['quantity'] = -1
     out_obj = to_out(order)
-    assert out_obj.to_dict() == {'id': 1, 'status': False, 'msgs': ['quantity is negative']}
+    assert out_obj.to_dict() == {'id': 1, 'status': False, 'msgs': ['quantity must be positive']}
 
 
 def test_price_quantity_negative(order):
-    order['price'] = -1
-    order['quantity'] = -1
+    order['price'] = 0
+    order['quantity'] = 0
     out_obj = to_out(order)
     assert out_obj.to_dict() == {'id': 1, 'status': False, 
-        'msgs': ['price is negative', 'quantity is negative']}
+        'msgs': ['price must be positive', 'quantity must be positive']}
 
 def test_to_str(order):
     out_obj = to_out(order)

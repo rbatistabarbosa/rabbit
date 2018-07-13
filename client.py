@@ -3,7 +3,7 @@ import pika
 import uuid
 import json
 
-class FibonacciRpcClient(object):
+class RpcClient(object):
     def __init__(self):
         self.connection = pika.BlockingConnection(pika.ConnectionParameters(host='35.199.98.99'))
 
@@ -34,9 +34,9 @@ class FibonacciRpcClient(object):
             self.connection.process_data_events()
         return self.response
 
-fibonacci_rpc = FibonacciRpcClient()
+rpc = RpcClient()
 
-order = {'id': 1, 'side': 'buy', 'price': -2.1, 'quantity': 2, 'symbol': 'USD'}
+order = {'id': 1, 'side': 'buy', 'price': 0, 'quantity': 2, 'symbol': 'USD'}
 print(" [x] Sending order {}".format(order))
-response = fibonacci_rpc.call(order)
+response = rpc.call(order)
 print(" [.] Got %r" % response)
