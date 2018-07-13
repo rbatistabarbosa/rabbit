@@ -26,6 +26,13 @@ def test_is_OK(order):
     out_obj = to_out(order)
     assert out_obj.to_dict() == {'id': 1, 'status': True, 'msgs': []}
 
+
+def test_invalid_ip(order):
+    order['id'] = -2
+    out_obj = to_out(order)
+    assert out_obj.to_dict() == {'id': -2, 'status': False, 'msgs': ['id is negative']}
+
+
 def test_side_wrong(order):
     order['side'] = 'a'
     out_obj = to_out(order)

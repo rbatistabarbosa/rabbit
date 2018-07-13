@@ -26,6 +26,10 @@ class Out:
         
         self.id = dict_obj['id']
         self.status = True
+
+        if dict_obj['id'] < 0:
+            self.msgs.append('id is negative')
+            self.status = False
         
         if dict_obj['side'] not in ('buy', 'sell'):
             self.msgs.append('invalid side')
