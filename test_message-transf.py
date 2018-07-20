@@ -15,6 +15,10 @@ def test_empty_message():
     out_obj = Out('')
     assert out_obj.to_dict() == {'id': -1, 'status': False, 'msgs': ['invalid json']}
 
+def test_with_no_id():
+    out_obj = to_out({'side': 'buy', 'price': 2.1, 'quantity': 2, 'symbol': 'USD'})
+    res = out_obj.to_dict()
+    assert res == {'id': -1, 'status': False, 'msgs': ['invalid schema']}
 
 def test_not_in_schema():
     msg = '["foo", {"bar":["baz", null, 1.0, 2]}]'

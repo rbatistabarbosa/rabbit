@@ -1,5 +1,6 @@
 [
   "test_message-transf.py::test_empty_message",
+  "test_message-transf.py::test_with_no_id",
   "test_message-transf.py::test_not_in_schema",
   "test_message-transf.py::test_is_OK",
   "test_message-transf.py::test_invalid_ip",
