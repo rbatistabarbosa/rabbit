@@ -54,6 +54,7 @@ class Out:
                 "quantity" : {"type" : "integer"},
                 "symbol" : {"type" : "string"},
             },
+            "required": ["id", "side", "price", "quantity", "symbol"]
         }
         return schema
         
