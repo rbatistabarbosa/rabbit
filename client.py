@@ -5,7 +5,7 @@ import json
 
 class RpcClient(object):
     def __init__(self):
-        self.connection = pika.BlockingConnection(pika.ConnectionParameters(host='35.199.98.99'))
+        self.connection = pika.BlockingConnection(pika.ConnectionParameters(host='189.17.29.50'))
 
         self.channel = self.connection.channel()
 
